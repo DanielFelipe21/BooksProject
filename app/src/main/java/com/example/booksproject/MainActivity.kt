@@ -28,30 +28,29 @@ class MainActivity : AppCompatActivity() {
         val button: Button = findViewById(R.id.buttonLogin)
         val editUser: EditText = findViewById(R.id.editUser)
         val editPassword: EditText = findViewById(R.id.editPassword)
-        val textCadastro = findViewById<TextView>(R.id.textRegister)
         val usuario = editUser.text.toString()
         val password = editPassword.text.toString()
 
-        button.setOnClickListener {
-            val queue = Volley.newRequestQueue(this)
-            val gson = Gson()
-            val url = "http://10.0.2.2:8090/usuario/login"
-            //val url = ""
-            var user = User()
-            val stringRequest = StringRequest(Request.Method.POST, url, { response ->
-                user.passwd = password
-                user.user = usuario;
-                gson.toJson(user)
-                Log.i("API_book", response.toString())
-                val resp = gson.fromJson(response, User::class.java)
-            }, { error ->
-                Log.i("API_book_error", error.toString())
-            })
-            queue.add(stringRequest)
-        }
+//        button.setOnClickListener {
+//            val queue = Volley.newRequestQueue(this)
+//            val gson = Gson()
+//            val url = "http://10.0.2.2:8090/usuario/login"
+//            //val url = ""
+//            var user = User()
+//            val stringRequest = StringRequest(Request.Method.POST, url, { response ->
+//                user.passwd = password
+//                user.user = usuario;
+//                gson.toJson(user)
+//                Log.i("API_book", response.toString())
+//                val resp = gson.fromJson(response, User::class.java)
+//            }, { error ->
+//                Log.i("API_book_error", error.toString())
+//            })
+//            queue.add(stringRequest)
+//        }
 
-        textCadastro.setOnClickListener{
-            val intent = Intent(baseContext, RegisterScreen::class.java)
+        button.setOnClickListener {
+            val intent = Intent(baseContext, ScreenClients::class.java)
             startActivity(intent)
         }
     }
