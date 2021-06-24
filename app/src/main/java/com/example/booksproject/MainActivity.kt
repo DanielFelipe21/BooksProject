@@ -36,7 +36,11 @@ class MainActivity : AppCompatActivity() {
                 Log.i("API_book", response.toString())
                 Toast.makeText(this, "Sucesso", Toast.LENGTH_SHORT).show()
                 if(resp.status == 200) {
-                    startActivity(Intent(baseContext, HomeScreen::class.java))
+                    val intent = Intent(baseContext, HomeScreen::class.java)
+                    val bundle = Bundle()
+                    bundle.putString("token", resp.token)
+                    intent.putExtras(bundle)
+                    startActivity(intent)
                 }
             }, { error ->
                 Log.i("API_book_error", error.toString())

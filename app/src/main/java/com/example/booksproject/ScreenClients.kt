@@ -25,12 +25,15 @@ class ScreenClients : AppCompatActivity() {
         return when (item.itemId) {
 
             android.R.id.home -> {
-                startActivity(Intent(baseContext, HomeScreen::class.java))
+                finish()
                 true
             }
 
             R.id.btn_plus -> {
-                startActivity(Intent(baseContext, RegisterClient::class.java))
+                var extras = intent?.extras!!
+                val intent = Intent(baseContext, RegisterClient::class.java)
+                intent.putExtras(extras)
+                startActivity(intent)
                 true
             }
 

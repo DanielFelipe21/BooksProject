@@ -20,7 +20,7 @@ class ScreenBooks : AppCompatActivity() {
         return when (item.itemId) {
 
             android.R.id.home -> {
-                startActivity(Intent(baseContext, HomeScreen::class.java))
+                finish()
                 true
             }
 
