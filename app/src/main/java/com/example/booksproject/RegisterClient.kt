@@ -1,4 +1,4 @@
-package com.example.booksproject
+ package com.example.booksproject
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -16,8 +16,8 @@ class RegisterClient : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register_client)
 
-        var extras = intent?.extras!!
-        var token = extras.getString("token")
+//        var extras = intent?.extras!!
+//        var token = extras.getString("token")
         supportActionBar?.title = "Cadastro Clientes"
         supportActionBar?.setHomeButtonEnabled(true)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
@@ -49,11 +49,11 @@ class RegisterClient : AppCompatActivity() {
                         return params
                     }
 
-                    override fun getHeaders(): MutableMap<String, String> {
-                        val params = HashMap<String, String>()
-                        params["authorization"] = token.toString()
-                        return params
-                    }
+//                    override fun getHeaders(): MutableMap<String, String> {
+//                        val params = HashMap<String, String>()
+//                        params["authorization"] = token.toString()
+//                        return params
+//                    }
                 }
                 queue.add(stringRequest)
             } catch (e: VolleyError) {

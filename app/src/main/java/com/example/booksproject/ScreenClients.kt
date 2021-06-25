@@ -1,6 +1,7 @@
 package com.example.booksproject
 
 import android.content.Intent
+import android.content.Intent.getIntent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
@@ -22,6 +23,8 @@ class ScreenClients : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
+//        var extras = intent?.extras!!
+//        var token = extras.getString("token")
         return when (item.itemId) {
 
             android.R.id.home -> {
@@ -30,9 +33,10 @@ class ScreenClients : AppCompatActivity() {
             }
 
             R.id.btn_plus -> {
-                var extras = intent?.extras!!
                 val intent = Intent(baseContext, RegisterClient::class.java)
-                intent.putExtras(extras)
+//                val bundle = Bundle()
+//                bundle.putString("token", token)
+//                intent.putExtras(bundle)
                 startActivity(intent)
                 true
             }
